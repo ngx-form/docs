@@ -1,7 +1,11 @@
 
-# DocsCli
+# @ngx-form/docs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+## Documentation for @ngx-form
+
+[Click to view demo](http://ngx-form.wwwdev.io)
 
 ## Development server
 
