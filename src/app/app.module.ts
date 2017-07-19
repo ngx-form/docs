@@ -13,7 +13,7 @@ import 'hammerjs';
 import { FormElementModule } from '@ngx-form/element';
 import { FormMaterialModule } from '@ngx-form/material';
 
-import PrismModule from '@ngx-prism/core';
+import { PrismModule } from '@ngx-prism/core';
 
 import {
   DocsMaterialModule,
