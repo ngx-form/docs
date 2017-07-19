@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+body, html {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0,0,0,.54);
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Loading page
+*/
+app-root > div:not(#main) {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+app-root > div > img {
+  width: 200px;
+  height: 214px;
+}
+
+/* sidenav container */
+.mat-sidenav-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+}
+
+.mat-sidenav-container {
+  height: 100% !important;
+  background-color: transparent !important;
+}
+
+.mat-sidenav-content {
+  margin-left: 225px !important;
+}

@@ -1,0 +1,25 @@
+<md-card
+  *ngFor="let item of elementNavigation"
+  [routerLink]="item.routerLink"
+  [ngClass]="{'disabled': item.disabled}"
+>
+  <md-card-header>
+    <md-card-title>
+      {{item.name}}
+    </md-card-title>
+    <md-card-subtitle>
+      {{item.subtitle}}
+    </md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      {{item.description}}
+    </p>
+  </md-card-content>
+  <!-- 
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+  -->
+</md-card>

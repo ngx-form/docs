@@ -1,0 +1,81 @@
+
+@import '~normalize.css/normalize';
+@import '~prismjs/themes/prism';
+@import '~@ngx-docs/material/dist/docs-material';
+
+@import 'common.scss';
+@import 'theme.scss';
+@import 'theming.scss';
+
+$zIndex: 2;
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  font-size: 20px;
+  background: mat-color($ngx-form, 500);
+
+  h1, h3 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+  > span {
+    font-size: 18px;
+  }
+  > h3, > h1, > span {
+    color: #ffffff;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+md-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: $zIndex;
+
+  .mat-button .mat-button-wrapper>*, 
+  .mat-icon-button .mat-button-wrapper>*, 
+  .mat-raised-button .mat-button-wrapper>* {
+    width: 20px;
+  }
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+
+  &.shadowScroll {
+    z-index: $zIndex+2;
+  }
+  .disabled {
+    @extend .disabled;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: 225px;
+
+  padding: 0;
+
+  p {
+    padding-left: 16px;
+    margin-top: 32px;
+    font-size: 11px;
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+
+.mat-sidenav.mat-sidenav-opened, .mat-sidenav.mat-sidenav-opening {
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}

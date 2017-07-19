@@ -1,0 +1,39 @@
+@import '../theme.scss';
+@import '../theming.scss';
+
+footer {
+  clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  min-height: 60px;
+
+  font-size: 12px;
+
+  background: mat-color($ngx-form, 500);
+  color: #ffffff;
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 16px;
+      padding: 0;
+      text-decoration: none;
+      color: #ffffff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  img {
+    height: 50px;
+    margin-right: 50px;
+  }
+}

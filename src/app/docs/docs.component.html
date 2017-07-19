@@ -1,0 +1,17 @@
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side" opened="true">
+    <ngx-navigation [name]="'docs'"></ngx-navigation>
+  </md-sidenav>
+  <div class="component-sidenav-content">
+    <header>
+      <h1 *ngIf="element" >
+        {{element}} form element
+      </h1>
+      <h1 *ngIf="!element" >
+        Documentation
+      </h1>
+    </header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</md-sidenav-container>

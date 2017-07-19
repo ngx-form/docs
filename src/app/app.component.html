@@ -1,0 +1,28 @@
+<md-toolbar color="primary" [ngClass]="shadowScroll" >
+  <button md-button [routerLink]="['/']">
+    <md-icon>subject</md-icon>
+    <span>&nbsp; NGX-FORM</span>
+  </button>
+  <button md-button [routerLink]="['/docs']">
+    <span>&nbsp; DOCS</span>
+  </button>
+  <button md-button [routerLink]="['/guides']">
+    <span>&nbsp; GUIDES</span>
+  </button>
+  <button md-button [routerLink]="['/guides']" [ngClass]="'disabled'" >
+    <span>&nbsp; DEMO</span>
+  </button>
+
+  <span class="example-spacer"></span>
+  
+  <button md-button (click)="donate()">
+    <md-icon>attach_money</md-icon>
+    Donate
+  </button>
+  <button md-button (click)="github()">
+    <img src="/assets/GitHub-Mark-Light-32px.png" />
+    GITHUB
+  </button>
+</md-toolbar>
+
+<router-outlet></router-outlet>

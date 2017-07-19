@@ -1,0 +1,17 @@
+@import '../common.scss';
+
+app-guides:host {
+  z-index: 2;
+  margin-top: 64px;
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+header {
+  @extend .header;
+}

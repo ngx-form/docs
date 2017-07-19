@@ -1,0 +1,8 @@
+<section>
+  <article *ngFor="let step of steps" >
+    <h3>
+      {{step.title}}
+    </h3>
+    <prism-highlight [language]="step.language">{{step.body}}</prism-highlight>
+  </article>
+</section>

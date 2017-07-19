@@ -1,0 +1,10 @@
+@import '../common.scss';
+
+app-guide:host {
+  z-index: 2;
+  margin-top: 64px;
+}
+
+header {
+  @extend .header;
+}

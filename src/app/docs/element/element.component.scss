@@ -1,0 +1,14 @@
+
+@import '~prismjs/themes/prism';
+
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 50px 70px;
+  box-sizing: border-box;
+}
+
+app-element:host {
+  flex: 100%;
+}

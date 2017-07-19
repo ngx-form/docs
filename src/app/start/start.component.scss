@@ -1,0 +1,42 @@
+
+@import '../common.scss';
+
+app-start:host {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 64px;
+}
+
+header {
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  min-height: 450px;
+
+  &.splash {
+    background: url(/assets/material-splash.svg) repeat-x 30%, #468966;
+  }
+  span {
+    margin-bottom: 70px;
+  }
+}
+
+main {
+  padding: 60px;
+  > div.features {
+    display: flex;
+    max-width: 920px;
+    width: 920px;
+    margin: 0px auto;
+    > div {
+      width: 50%;
+    }
+    &:nth-child(odd) {
+      justify-content: flex-start;
+    }
+    &:nth-child(even) {
+      justify-content: flex-end;
+    }
+  }
+}

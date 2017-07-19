@@ -1,0 +1,18 @@
+
+prism-highlight {
+  display: flex;
+  flex: 1 1 100%;
+  background: #f7f7f7;
+  
+  pre[class*="language-"] {
+    margin: 0;
+    padding: 30px 50px;
+    background: inherit;
+    font-size: 0.875em;
+
+    code {
+      white-space: pre-wrap;
+      tab-size: 2;
+    }
+  }
+}

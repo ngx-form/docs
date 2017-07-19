@@ -1,0 +1,106 @@
+<div class="element" fxLayout="column" fxLayoutAlign="start stretch">
+  <md-tab-group >
+    <md-tab label="OVERVIEW">
+      <p>
+        &lt;form-element&gt; gives you possibility to dynamically create new html form element like input, select or any another
+        that you will provide to form element module config using Material Design.
+      </p>
+
+      <docs-example 
+        [title]="'Input element'"
+        [html]="example[0].html"
+        [ts]="example[0].ts"
+        [css]="example[0].css"
+      >
+        <div class="body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" novalidate>
+            <div *ngFor="let element of simple; let i = index" fxLayout="row" fxLayoutAlign="start start">
+              <form-element
+                style="min-width: 200px; margin-right: 16px;"
+                [form]="form"
+                [model]="rows[0]"
+                [config]="element"
+                (cancelled)="inputCancelled($event)"
+                (changed)="onSubmit($event)"
+                (created)="created($event)"
+                (destroyed)="destroyed($event)"
+              ></form-element>
+              <div style="padding-left: 16px;" fxFlex="100" fxLayout="column" fxLayoutAlign="space-between start">
+                <p *ngIf="element.attributes.autocomplete">
+                  Autocomplete
+                  <md-radio-group [(ngModel)]="element.attributes.autocomplete" [ngModelOptions]="{standalone: true}">
+                    <md-radio-button value="off">Off</md-radio-button>
+                    <md-radio-button value="on">On</md-radio-button>
+                  </md-radio-group>
+                </p>
+                <p>
+                  <md-checkbox [(ngModel)]="element.attributes.disabled" [ngModelOptions]="{standalone: true}">
+                    Disabled
+                  </md-checkbox>
+                </p>
+                <p *ngIf="element.attributes.hideRequiredMarker === false || element.attributes.hideRequiredMarker === true" >
+                  <md-checkbox [(ngModel)]="element.attributes.hideRequiredMarker" [ngModelOptions]="{standalone: true}">
+                    hideRequiredMarker
+                  </md-checkbox>
+                </p>
+                <p *ngIf="element.attributes.required === false || element.attributes.required === true" >
+                  Required
+                  <br />
+                  <md-radio-group [(ngModel)]="element.attributes.required" [ngModelOptions]="{standalone: true}">
+                    <md-radio-button [value]="true">On</md-radio-button>
+                    <md-radio-button [value]="false">Off</md-radio-button>
+                  </md-radio-group>            
+                </p>
+                <p *ngIf="!element.attributes" fxLayout="row">
+                  <form-element *ngIf="element.attributes.hintLabel !== undefined"
+                    [formGroup]="form"
+                    [model]="element.attributes"
+                    [config]="hintLabelInput"
+                  ></form-element>
+                  <form-element *ngIf="element.mdPlaceholder !== undefined" 
+                    [formGroup]="form"
+                    [model]="element"
+                    [config]="mdPlaceholderInput"
+                  ></form-element>
+                  <form-element *ngIf="element.attributes.maxlength !== undefined" 
+                    [formGroup]="form"
+                    [model]="element.attributes"
+                    [config]="maxLength"
+                  ></form-element>
+                </p>
+              </div>
+              <div>
+                <a md-button color="primary" (click)="create(element)" *ngIf="element.element === null">
+                  Create
+                </a>
+                <a md-button color="primary" (click)="destroy(element)" *ngIf="element.element !== null">
+                  Destroy
+                </a>
+              </div>
+            </div>
+            <button md-raised-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
+          </form>
+        </div>
+        <div class="debug">
+          <p><strong>simple[0]</strong> {{simple[0]|json}}</p>
+          <p><strong>model</strong> {{rows[0]|json}}</p>
+        </div>
+      </docs-example>
+    </md-tab>
+    <md-tab label="API REFERENCE">
+      <docs-api title="@Input" [header]="header" [body]="body.input"></docs-api>
+      <docs-api title="@Output" [header]="header" [body]="body.output"></docs-api>
+      <docs-api title="Properties" [header]="header" [body]="body.properties"></docs-api>
+    </md-tab>
+    <md-tab label="EXAMPLES">
+      <!-- Docs example -->
+      <docs-example >
+        <!-- Docs example body -->
+        <div class="body"></div>
+        <!-- Docs example debug -->
+        <div class="debug"></div>
+      </docs-example>
+
+    </md-tab>
+  </md-tab-group>
+</div>
