@@ -30,7 +30,7 @@
     "@ngx-form/interface": "^0.5.1",
     "@ngx-form/material": "^1.0.0-beta.1",
     "@ngx-form/type": "^0.1.6",
-    "@ngx-prism/core": "^0.2.6",
+    "@ngx-prism/core": "^0.2.7",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
     "jsfy": "^1.6.5",
