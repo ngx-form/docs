@@ -4,8 +4,7 @@
 @import '~@ngx-docs/material/dist/docs-material';
 
 @import 'common.scss';
-@import 'theme.scss';
-@import 'theming.scss';
+@import 'navigation.scss';
 
 $zIndex: 2;
 
@@ -39,8 +38,8 @@ md-toolbar {
   top: 0;
   z-index: $zIndex;
 
-  .mat-button .mat-button-wrapper>*, 
-  .mat-icon-button .mat-button-wrapper>*, 
+  .mat-button .mat-button-wrapper>*,
+  .mat-icon-button .mat-button-wrapper>*,
   .mat-raised-button .mat-button-wrapper>* {
     width: 20px;
   }

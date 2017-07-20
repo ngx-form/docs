@@ -48,7 +48,7 @@ import { StartComponent } from './start/start.component';
 import { TypeComponent } from './type/type.component';
 
 // Navigation
-import { NavigationModule } from './navigation';
+import { NavigationModule } from '@ngx-ui/navigation';
 import { docsNavigation } from './navigation-config/navigation.docs';
 
 const configNavigation = {
