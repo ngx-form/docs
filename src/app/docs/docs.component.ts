@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 
-import { NavigationService } from './../navigation/navigation.service';
+import { NavigationService } from '@ngx-ui/navigation';
 
 @Component({
   selector: 'app-docs',

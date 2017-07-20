@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NavigationService } from './../../navigation/navigation.service';
+import { NavigationService } from '@ngx-ui/navigation';
 
 @Component({
   selector: 'app-docs-start',
@@ -10,15 +10,13 @@ import { NavigationService } from './../../navigation/navigation.service';
 export class DocsStartComponent implements OnInit {
 
   elementNavigation = [];
-  NavigationService: NavigationService;
 
-  constructor(NavigationService: NavigationService) {
-    this.NavigationService = NavigationService;
+  constructor(private navigationService: NavigationService) {
   }
 
   ngOnInit() {
-    if (this.NavigationService.navigation['docs'].group.length > 0) {
-      this.NavigationService.navigation['docs'].group.forEach(group => {
+    if (this.navigationService.navigation['docs'].group.length > 0) {
+      this.navigationService.navigation['docs'].group.forEach(group => {
         group.items.forEach(items => {
           this.elementNavigation.push(items);
         });
