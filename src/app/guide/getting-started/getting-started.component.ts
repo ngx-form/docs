@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { steps } from './getting-started.steps';
+import { steps } from './shared/getting-started.steps';
 
 @Component({
   selector: 'app-guide-getting-started',
