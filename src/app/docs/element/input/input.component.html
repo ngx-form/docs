@@ -2,11 +2,11 @@
   <md-tab-group >
     <md-tab label="OVERVIEW">
       <p>
-        &lt;form-element&gt; gives you possibility to dynamically create new html form element like input, select or any another
+        &lt;ngx-form-element&gt; gives you possibility to dynamically create new html form element like input, select or any another
         that you will provide to form element module config using Material Design.
       </p>
 
-      <docs-example 
+      <docs-example
         [title]="'Input element'"
         [html]="example[0].html"
         [ts]="example[0].ts"
@@ -15,7 +15,7 @@
         <div class="body">
           <form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" novalidate>
             <div *ngFor="let element of simple; let i = index" fxLayout="row" fxLayoutAlign="start start">
-              <form-element
+              <ngx-form-element
                 style="min-width: 200px; margin-right: 16px;"
                 [form]="form"
                 [model]="rows[0]"
@@ -24,7 +24,7 @@
                 (changed)="onSubmit($event)"
                 (created)="created($event)"
                 (destroyed)="destroyed($event)"
-              ></form-element>
+              ></ngx-form-element>
               <div style="padding-left: 16px;" fxFlex="100" fxLayout="column" fxLayoutAlign="space-between start">
                 <p *ngIf="element.attributes.autocomplete">
                   Autocomplete
@@ -49,24 +49,24 @@
                   <md-radio-group [(ngModel)]="element.attributes.required" [ngModelOptions]="{standalone: true}">
                     <md-radio-button [value]="true">On</md-radio-button>
                     <md-radio-button [value]="false">Off</md-radio-button>
-                  </md-radio-group>            
+                  </md-radio-group>
                 </p>
                 <p *ngIf="!element.attributes" fxLayout="row">
-                  <form-element *ngIf="element.attributes.hintLabel !== undefined"
+                  <ngx-form-element *ngIf="element.attributes.hintLabel !== undefined"
                     [formGroup]="form"
                     [model]="element.attributes"
                     [config]="hintLabelInput"
-                  ></form-element>
-                  <form-element *ngIf="element.mdPlaceholder !== undefined" 
+                  ></ngx-form-element>
+                  <ngx-form-element *ngIf="element.mdPlaceholder !== undefined"
                     [formGroup]="form"
                     [model]="element"
                     [config]="mdPlaceholderInput"
-                  ></form-element>
-                  <form-element *ngIf="element.attributes.maxlength !== undefined" 
+                  ></ngx-form-element>
+                  <ngx-form-element *ngIf="element.attributes.maxlength !== undefined"
                     [formGroup]="form"
                     [model]="element.attributes"
                     [config]="maxLength"
-                  ></form-element>
+                  ></ngx-form-element>
                 </p>
               </div>
               <div>
