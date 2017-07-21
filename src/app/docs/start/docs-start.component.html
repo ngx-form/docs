@@ -11,12 +11,13 @@
       {{item.subtitle}}
     </md-card-subtitle>
   </md-card-header>
+  <img md-card-image src="{{item.image}}" *ngIf="item.image"  />
   <md-card-content>
     <p>
       {{item.description}}
     </p>
   </md-card-content>
-  <!-- 
+  <!--
   <md-card-actions>
     <button md-button>LIKE</button>
     <button md-button>SHARE</button>
