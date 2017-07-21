@@ -1,12 +1,22 @@
 <md-list>
- <md-list-item>
-   <button md-button [routerLink]="['/guide/getting-started']" [disabled]="true">
-     Getting started
-   </button>
- </md-list-item>
- <md-list-item>
-   <button md-button [routerLink]="['/guide/preconfigure']" [disabled]="true">
-     Preconfigure your own form elements
-   </button>
- </md-list-item>
+  <md-list-item>
+    <button md-button [routerLink]="['/guide/getting-started']">
+      Getting started
+    </button>
+  </md-list-item>
+  <md-list-item>
+    <button md-button [routerLink]="['/guide/preconfigure']" [disabled]="true">
+      Configure your own elements
+    </button>
+  </md-list-item>
+  <md-list-item>
+    <button md-button [routerLink]="['/guide/custom-validation']" [disabled]="true">
+      Custom validation
+    </button>
+  </md-list-item>
+  <md-list-item>
+    <button md-button [routerLink]="['/guide/custom-messages']" [disabled]="true">
+      Custom error messages
+    </button>
+  </md-list-item>
 </md-list>
