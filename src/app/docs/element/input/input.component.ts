@@ -34,14 +34,14 @@ export class ElementInputComponent extends DocsClass implements AfterViewInit, O
   example = [
     {
       html: `
-<form-element
+<ngx-form-element
   [form]="form"
   [model]="rows[0]"
   [config]="simple[0]"
   (changed)="onSubmit($event)"
   (created)="created($event)"
   (destroyed)="destroyed($event)"
-></form-element>
+></ngx-form-element>
       `,
       ts: `${JSON.stringify(simple[0], null, 2)}
       `,
