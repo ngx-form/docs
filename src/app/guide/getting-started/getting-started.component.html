@@ -1,8 +1,9 @@
 <section>
-  <article *ngFor="let step of steps" >
+  <article *ngFor="let step of steps; let idx = index" >
     <h3>
-      {{step.title}}
+      Step {{idx+1}}. {{step.title}}
     </h3>
-    <prism-highlight [language]="step.language">{{step.body}}</prism-highlight>
+    <p [innerHTML]="step.body"></p>
+    <prism-highlight *ngIf="step.code"  [language]="step.language">{{step.code}}</prism-highlight>
   </article>
 </section>
