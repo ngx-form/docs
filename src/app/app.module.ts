@@ -49,7 +49,7 @@ import { TypeComponent } from './type/type.component';
 
 // Navigation
 import { NavigationModule } from '@ngx-ui/navigation';
-import { docsNavigation } from './navigation-config/navigation.docs';
+import { docsNavigation } from './shared/navigation.docs';
 
 const configNavigation = {
   navigations: [
