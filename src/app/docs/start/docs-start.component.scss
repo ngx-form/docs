@@ -19,11 +19,13 @@ md-card {
   flex-grow: 0;
   width: 260px;
   margin: 20px;
+  border: 1px solid #ffffff;
+  transition: border 500ms;
 
   cursor: pointer;
 
   &:hover {
-    @extend .hover-link;    
+    border-color: mat-color($ngx-form, 500);
   }
 
   &.disabled {
@@ -32,5 +34,11 @@ md-card {
 
   md-card-title {
     font-size: 20px;
+  }
+}
+
+/deep/ .mat-card {
+  .mat-card-header-text {
+    margin: 0px;
   }
 }
