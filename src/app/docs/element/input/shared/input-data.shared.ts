@@ -28,8 +28,144 @@ export const simple: ArrayFormElementInterface = [
   }
 ];
 
+export const extended: ArrayFormElementInterface = [
+  {
+    attributes: {
+      // Material Design
+      color: 'primary',
+      floatPlaceholder: 'auto',
+      hideRequiredMarker: true,
+      // end
 
-export const rows = [
+      disabled: false,
+      placeholder: 'Input type: date',
+      required: false,
+      type: 'date'
+    },
+    destroy: {
+      onCancelled: false,
+      onChanged: false,
+      onSubmitted: false
+    },
+    element: 'input',
+    focus: false,
+    key: 'birthday'
+  },
+  {
+    attributes: {
+      // Material Design
+      color: 'primary',
+      floatPlaceholder: 'auto',
+      hideRequiredMarker: true,
+      // end
+
+      disabled: false,
+      placeholder: 'Input type: datetime-local',
+      required: false,
+      type: 'datetime-local'
+    },
+    destroy: {
+      onCancelled: false,
+      onChanged: false,
+      onSubmitted: false
+    },
+    element: 'input',
+    focus: false,
+    key: 'createdAt'
+  },
+  {
+    attributes: {
+      autocomplete: 'off',
+
+      // Material Design
+      color: 'primary',
+      floatPlaceholder: 'auto',
+      hideRequiredMarker: true,
+      // end
+
+      maxlength: 20,
+      minlength: 10,
+
+      disabled: false,
+      placeholder: 'Input type: email',
+      required: false,
+      type: 'email'
+    },
+    destroy: {
+      onCancelled: false,
+      onChanged: false,
+      onSubmitted: false
+    },
+    mdHint: {
+      end: 'maxlength'
+    },
+    element: 'input',
+    focus: false,
+    key: 'email'
+  },
+  {
+    attributes: {
+      // Material Design
+      color: 'primary',
+      floatPlaceholder: 'auto',
+      hideRequiredMarker: true,
+      // end
+
+      disabled: false,
+      placeholder: 'Input type: month',
+      required: false,
+      type: 'month'
+    },
+    destroy: {
+      onCancelled: false,
+      onChanged: false,
+      onSubmitted: false
+    },
+    element: 'input',
+    focus: false,
+    key: 'month'
+  },
+  {
+    attributes: {
+      // Material Design
+      color: 'primary',
+      floatPlaceholder: 'auto',
+      hideRequiredMarker: true,
+      // end
+
+      max: 25,
+      min: 15,
+      step: 2,
+
+      disabled: false,
+      placeholder: 'Input type: number',
+      required: false,
+      type: 'number'
+    },
+    destroy: {
+      onCancelled: false,
+      onChanged: false,
+      onSubmitted: false
+    },
+    element: 'input',
+    focus: false,
+    key: 'age'
+  }
+];
+
+/*
+number
+password
+search
+tel
+text
+time
+url
+week
+
+*/
+
+export const rows: Array<any> = [
   {
     _id: 1,
     firstname: '',
@@ -39,6 +175,7 @@ export const rows = [
       street: 'Głuszyna',
       home: '270/5'
     },
+    email: 'scibor.rudnicki@wwwdev.io',
     birthday: '2017-04-14',
     createdAt: '2019-01-01T15:01',
     month: '2017-04',
