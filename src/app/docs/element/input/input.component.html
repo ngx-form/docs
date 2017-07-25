@@ -1,5 +1,9 @@
 <div class="element" fxLayout="column" fxLayoutAlign="start stretch">
   <md-tab-group >
+
+    <!--
+      OVERVIEW
+    -->
     <md-tab label="OVERVIEW">
       <p>
         &lt;ngx-form-element&gt; gives you possibility to dynamically create new html form element like input, select or any another
@@ -8,14 +12,15 @@
 
       <docs-example
         [title]="'Input element'"
-        [html]="example[0].html"
-        [ts]="example[0].ts"
-        [css]="example[0].css"
+        [html]="docsExample.simple.html"
+        [ts]="docsExample.simple.ts"
+        [css]="docsExample.simple.css"
       >
         <div class="body">
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" novalidate>
+          <form [formGroup]="form" (ngSubmit)="onSubmit($event, form)" role="form" novalidate>
             <div *ngFor="let element of simple; let i = index" fxLayout="row" fxLayoutAlign="start start">
               <ngx-form-element
+                *ngIf="element.element"
                 style="min-width: 200px; margin-right: 16px;"
                 [form]="form"
                 [model]="rows[0]"
@@ -25,7 +30,7 @@
                 (created)="created($event)"
                 (destroyed)="destroyed($event)"
               ></ngx-form-element>
-              <div style="padding-left: 16px;" fxFlex="100" fxLayout="column" fxLayoutAlign="space-between start">
+              <div *ngIf="element.element" style="padding-left: 16px;" fxFlex="100" fxLayout="column" fxLayoutAlign="space-between start">
                 <p *ngIf="element.attributes.autocomplete">
                   Autocomplete
                   <md-radio-group [(ngModel)]="element.attributes.autocomplete" [ngModelOptions]="{standalone: true}">
@@ -53,17 +58,17 @@
                 </p>
                 <p *ngIf="!element.attributes" fxLayout="row">
                   <ngx-form-element *ngIf="element.attributes.hintLabel !== undefined"
-                    [formGroup]="form"
+                    [form]="form"
                     [model]="element.attributes"
                     [config]="hintLabelInput"
                   ></ngx-form-element>
                   <ngx-form-element *ngIf="element.mdPlaceholder !== undefined"
-                    [formGroup]="form"
+                    [form]="form"
                     [model]="element"
                     [config]="mdPlaceholderInput"
                   ></ngx-form-element>
                   <ngx-form-element *ngIf="element.attributes.maxlength !== undefined"
-                    [formGroup]="form"
+                    [form]="form"
                     [model]="element.attributes"
                     [config]="maxLength"
                   ></ngx-form-element>
@@ -78,7 +83,7 @@
                 </a>
               </div>
             </div>
-            <button md-raised-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
+            <button md-raised-button color="accent" type="button" [disabled]="!form.valid">Submit</button>
           </form>
         </div>
         <div class="debug">
@@ -87,16 +92,100 @@
         </div>
       </docs-example>
     </md-tab>
-    <md-tab label="API REFERENCE">
-      <docs-api title="@Input" [header]="header" [body]="body.input"></docs-api>
-      <docs-api title="@Output" [header]="header" [body]="body.output"></docs-api>
-      <docs-api title="Properties" [header]="header" [body]="body.properties"></docs-api>
+
+    <!--
+      API
+    -->
+    <md-tab label="API">
+      <docs-api title="@Input" [header]="docsApi.header" [body]="docsApi.body.input"></docs-api>
+      <docs-api title="@Output" [header]="docsApi.header" [body]="docsApi.body.output"></docs-api>
+      <docs-api title="Component instance FormElementInterface" [header]="docsApi.header" [body]="docsApi.body.properties"></docs-api>
     </md-tab>
+
+    <!--
+      EXAMPLES
+    -->
     <md-tab label="EXAMPLES">
       <!-- Docs example -->
-      <docs-example >
+      <docs-example
+        [title]="'More examples'"
+        [html]="docsExample.extended.html"
+        [ts]="docsExample.extended.ts"
+        [css]="docsExample.extended.css"
+      >
         <!-- Docs example body -->
-        <div class="body"></div>
+        <div class="body">
+
+          <form [formGroup]="formExtended" (ngSubmit)="onSubmit(model)" role="form" novalidate>
+            <div *ngFor="let element of extended; let i = index" fxLayout="row" fxLayoutAlign="start start">
+              <ngx-form-element
+                *ngIf="element.element"
+                style="min-width: 200px; margin-right: 16px;"
+                [form]="formExtended"
+                [model]="rows[0]"
+                [config]="element"
+                (cancelled)="inputCancelled($event)"
+                (changed)="onSubmit($event)"
+                (created)="created($event)"
+                (destroyed)="destroyed($event)"
+              ></ngx-form-element>
+              <div *ngIf="element.element"  style="padding-left: 16px;" fxFlex="100" fxLayout="column" fxLayoutAlign="space-between start">
+                <p *ngIf="extended[i].attributes.autocomplete">
+                  Autocomplete
+                  <md-radio-group [(ngModel)]="extended[i].attributes.autocomplete" [ngModelOptions]="{standalone: true}">
+                    <md-radio-button value="off">Off</md-radio-button>
+                    <md-radio-button value="on">On</md-radio-button>
+                  </md-radio-group>
+                </p>
+                <p>
+                  <md-checkbox [(ngModel)]="extended[i].attributes.disabled" [ngModelOptions]="{standalone: true}">
+                    Disabled
+                  </md-checkbox>
+                </p>
+                <p *ngIf="extended[i].attributes.hideRequiredMarker === false || extended[i].attributes.hideRequiredMarker === true" >
+                  <md-checkbox [(ngModel)]="extended[i].attributes.hideRequiredMarker" [ngModelOptions]="{standalone: true}">
+                    hideRequiredMarker
+                  </md-checkbox>
+                </p>
+                <p *ngIf="extended[i].attributes.required === false || extended[i].attributes.required === true" >
+                  Required
+                  <br />
+                  <md-radio-group [(ngModel)]="extended[i].attributes.required" [ngModelOptions]="{standalone: true}">
+                    <md-radio-button [value]="true">On</md-radio-button>
+                    <md-radio-button [value]="false">Off</md-radio-button>
+                  </md-radio-group>
+                </p>
+                <p *ngIf="extended[i].attributes" fxLayout="row">
+                  <ngx-form-element *ngIf="extended[i].attributes.hintLabel !== undefined"
+                    [form]="formExtended"
+                    [model]="extended[i].attributes"
+                    [config]="hintLabelInput"
+                  ></ngx-form-element>
+                  <ngx-form-element *ngIf="extended[i].mdPlaceholder !== undefined"
+                    [form]="formExtended"
+                    [model]="extended[i]"
+                    [config]="mdPlaceholderInput"
+                  ></ngx-form-element>
+                  <ngx-form-element *ngIf="extended[i].attributes.maxlength !== undefined"
+                    [form]="formExtended"
+                    [model]="extended[i].attributes"
+                    [config]="maxLength"
+                  ></ngx-form-element>
+                </p>
+              </div>
+              <div>
+                <a md-button color="primary" (click)="create(extended[i])" *ngIf="extended[i].element === null">
+                  Create
+                </a>
+                <a md-button color="primary" (click)="destroy(extended[i])" *ngIf="extended[i].element !== null">
+                  Destroy
+                </a>
+              </div>
+            </div>
+            <button md-raised-button color="accent" type="submit" [disabled]="!formExtended.valid">Submit</button>
+          </form>
+
+        </div>
         <!-- Docs example debug -->
         <div class="debug"></div>
       </docs-example>

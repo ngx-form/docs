@@ -5,12 +5,15 @@ import * as jsfy from 'jsfy';
 
 // internal
 import {
+  extended,
   hintLabelInput,
   maxLength,
   mdPlaceholderInput,
   rows,
   simple
-} from './input-data';
+} from './shared/input-data.shared';
+import { docsApi } from './shared/docs-api.shared';
+import { docsExample } from './shared/docs-example.shared';
 import { DocsClass } from './../../docs.class';
 import { ArrayFormElementInterface, FormElementInterface } from '@ngx-form/interface';
 
@@ -23,68 +26,20 @@ import * as lodash from 'lodash';
 })
 export class ElementInputComponent extends DocsClass implements AfterViewInit, OnChanges, OnInit {
 
+  docsApi: Object;
+  docsExample: Object;
   form: FormGroup;
+  formExtended: FormGroup;
   hintLabelInput: FormElementInterface;
   maxLength: FormElementInterface;
   mdPlaceholderInput: FormElementInterface;
   placeholderInput: FormElementInterface;
   simple: ArrayFormElementInterface;
+  extended: ArrayFormElementInterface;
   rows: Array<any>;
-
-  example = [
-    {
-      html: `
-<ngx-form-element
-  [form]="form"
-  [model]="rows[0]"
-  [config]="simple[0]"
-  (changed)="onSubmit($event)"
-  (created)="created($event)"
-  (destroyed)="destroyed($event)"
-></ngx-form-element>
-      `,
-      ts: `${JSON.stringify(simple[0], null, 2)}
-      `,
-      css: `/** No CSS for this example */`
-    }
-  ];
-
-  header = ['Name', 'Description'];
-  body = {
-    output: [
-      { name: 'cancelled', description: 'When `Escape` key is pressed' },
-      { name: 'changed', description: 'When model change' },
-      { name: 'created', description: 'After creation' },
-      { name: 'destroyed', description: 'After destroy' },
-      { name: 'submitted', description: 'After submit' }
-    ],
-    input: [
-      { name: `config`, description: 'Define all properties' },
-      { name: `formGroup`, description: '@Angular/forms group' },
-      { name: `key`, description: 'Key to model' },
-      { name: `model`, description: 'Model data to manipulate' },
-    ],
-    properties: [
-      { name: 'attributes', description: 'Html attributes in template' },
-      {
-        name: 'destroy',
-        description: `
-          Destroy input <strong>onCancelled</strong>, <strong>onCancelled</strong>
-        `
-      },
-      { name: 'element', description: '' },
-      { name: 'focus', description: '' },
-      { name: 'key', description: '' },
-      { name: 'label', description: '' },
-      { name: 'options', description: '' },
-      { name: 'validators', description: '' },
-      { name: 'viewValue', description: '' }
-    ]
-  };
-
-  cancelled: any;
-  changed: any;
-  submitted: any;
+  cancelled: Function;
+  changed: Function;
+  submitted: Function;
 
   /**
    * Creates an instance of ElementComponent.
@@ -102,9 +57,13 @@ export class ElementInputComponent extends DocsClass implements AfterViewInit, O
     this.mdPlaceholderInput = mdPlaceholderInput;
     // end
 
+    this.docsApi = docsApi;
+    this.docsExample = docsExample;
     this.rows = rows;
     this.simple = simple;
+    this.extended = extended;
     this.form = this.formBuilder.group({});
+    this.formExtended = this.formBuilder.group({});
   }
 
   /**
@@ -188,9 +147,11 @@ export class ElementInputComponent extends DocsClass implements AfterViewInit, O
     field.element = null;
   }
 
-  onSubmit($event) {
-    console.log(`(onSubmit)`, $event, this.form);
-    console.log(this.form.get('firstname'))
+  onSubmit(model) {
+    console.log(`onSubmit()`, model, this.formExtended);
+    if (this.formExtended.valid) {
+      console.log(`form valid`);
+    }
   }
 
   ngAfterViewInit() {
