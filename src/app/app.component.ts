@@ -26,6 +26,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
+  demo() {
+    window.location.href = 'https://github.com/ngx-form/demo';
+  }
+
   github() {
     window.location.href = 'https://github.com/ngx-form';
   }
