@@ -9,12 +9,12 @@
   <button md-button [routerLink]="['/guides']">
     <span>&nbsp; GUIDES</span>
   </button>
-  <button md-button [routerLink]="['/guides']" [ngClass]="'disabled'" >
+  <button md-button (click)="demo()">
     <span>&nbsp; DEMO</span>
   </button>
 
   <span class="example-spacer"></span>
-  
+
   <button md-button (click)="donate()">
     <md-icon>attach_money</md-icon>
     Donate
